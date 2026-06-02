@@ -16,13 +16,13 @@
     }
 
 </style>
-   
+
 @endpush
 @push('scripts')
     <script>
       function Message(){
         alert('Welcome in Laravel Tutorial Series')
-      }    
-    
+      }
+
     </script>
 @endpush

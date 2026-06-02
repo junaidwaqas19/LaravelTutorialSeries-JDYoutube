@@ -26,7 +26,7 @@ Route::get('profile', function () {
 })->name('setting.profile');
 
 Route::view('aboutus','about');
-Route::view('contactus','about');
+Route::view('contactus','contact');
 Route::view('category','category');
 Route::view('post','post');
 
