@@ -10,12 +10,12 @@
             Dashboard
         </a>
 
-        <a href="#" class="block px-4 py-2 rounded hover:bg-gray-700">
+        <a href="{{'/user/list'}}" class="block px-4 py-2 rounded hover:bg-gray-700">
             Users
         </a>
 
         <a href="#" class="block px-4 py-2 rounded hover:bg-gray-700">
-            Products
+            Product
         </a>
 
         <a href="#" class="block px-4 py-2 rounded hover:bg-gray-700">
