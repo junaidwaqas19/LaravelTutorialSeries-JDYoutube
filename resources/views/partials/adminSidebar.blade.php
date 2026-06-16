@@ -10,7 +10,7 @@
             Dashboard
         </a>
 
-        <a href="{{'/user/list'}}" class="block px-4 py-2 rounded hover:bg-gray-700">
+        <a href="{{route('user.list')}}" class="block px-4 py-2 rounded hover:bg-gray-700">
             Users
         </a>
 

@@ -17,7 +17,7 @@ class UserController extends Controller
     }
     public function store(Request $request){
 
-        return redirect('/user/list')->with([
+        return redirect()->route('user.list')->with([
             'username'=> $request->username,
             'email' => $request->email,
         ]);

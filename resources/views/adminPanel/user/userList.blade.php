@@ -7,7 +7,7 @@
     <div class="flex justify-between p-4 border-b">
         <h2 class="font-bold">User List</h2>
 
-        <a href="{{url('/user/add')}}" class="px-3 py-2 text-white bg-blue-600 rounded">
+        <a href="{{route('user-add')}}" class="px-3 py-2 text-white bg-blue-600 rounded">
             Add User
         </a>
     </div>

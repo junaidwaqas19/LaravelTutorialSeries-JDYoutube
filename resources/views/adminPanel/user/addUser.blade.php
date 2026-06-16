@@ -1,7 +1,7 @@
 @extends('layouts.adminLayout')
 @section('title','Add User')
 @section('content')
-<form action="{{url('/user/store')}}" method="POST">
+<form action="{{route('user.store')}}" method="POST">
     @csrf
         <div>
             <label for="username">Username</label><br>
