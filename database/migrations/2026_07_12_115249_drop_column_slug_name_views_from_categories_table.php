@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tag', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('categories', function (Blueprint $table) {
+             $table->dropColumn(['slug_name','views']);
         });
     }
 
@@ -22,6 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tag');
+        Schema::table('categories', function (Blueprint $table) {
+           $table->string('slug_name');
+           $table->bigInteger('views')->after('status')->nullable();
+        });
     }
 };
