@@ -30,7 +30,8 @@ Route::view('dashboard','adminPanel.dashboard');
 Route::get('admin/user/list',[UserController::class,'index'])->name('user.list');
 Route::get('admin/user/add',[UserController::class,'create'])->name('user-add');
 Route::post('admin/user/store',[UserController::class,'store'])->name('user.store');
-
+Route::get('admin/user/edit/{id}',[UserController::class,'edit'])->name('user.edit');
+Route::delete('admin/user/delete/{id}',[UserController::class,'destroy'])->name('user.delete');
 
 
 
