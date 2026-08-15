@@ -33,14 +33,14 @@
                         <td class="p-3"><?php echo e($u->email); ?></td>
                         <td class="p-3 text-center flex justify-center gap-2 ">
                             <a href="<?php echo e(route('user.edit',$u->id)); ?>" class="px-2 py-1 text-white bg-yellow-500 rounded">Edit</a>
-                            
+
                             <form action="<?php echo e(route('user.delete',$u->id)); ?>" method="POST">
                                     <?php echo csrf_field(); ?>
                                     <?php echo method_field('DELETE'); ?>
-                                    <button type="submit" class="px-2 py-1 text-white bg-red-600 rounded" >
+                                    <button type="submit" class="px-2 py-1 text-white bg-red-600 rounded cursor:mouse" >
                                         Delete
                                     </button>
-                            </form> 
+                            </form>
                         </td>
                     </tr>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
