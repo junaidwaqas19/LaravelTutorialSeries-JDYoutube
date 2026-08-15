@@ -34,14 +34,14 @@ class UserController extends Controller
               ->with('success','User Recorded Added Successfully!');;
 
     }
-    public function edit($id){
-         $user= User::findOrFail($id);
+    public function edit(User $user){
+
 
           return view('adminPanel.user.addUser',compact('user'));
     }
-    public function update(Request $request,$id){
+    public function update(Request $request, User $user){
 
-         $user= User::findOrFail($id);
+
 
           $request->validate([
            'username'=> 'required|string|max:255',
@@ -59,8 +59,8 @@ class UserController extends Controller
 
     }
 
-   public function destroy($id){
-        User::findOrFail($id)->delete();
+   public function destroy(User $user){
+        $user->delete();
         return redirect()
             ->route('user.list')
             ->with('success','User Recorded deleted Successfully!');
