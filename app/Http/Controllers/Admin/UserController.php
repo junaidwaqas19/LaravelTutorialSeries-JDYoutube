@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 class UserController extends Controller
 {
     public function index(){
@@ -18,12 +20,9 @@ class UserController extends Controller
     public function create(){
         return view('adminPanel.user.addUser');
     }
-    public function store(Request $request){
+    public function store(UserStoreRequest $request){
 
-     $request->validate([
-           'username'=> 'required|string|max:255',
-           'email'   => 'required|string|max:255|unique:users,email',
-     ]);
+
              User::insert([
                  'name' =>$request->username,
                  'email'=>$request->email,
@@ -39,14 +38,9 @@ class UserController extends Controller
 
           return view('adminPanel.user.addUser',compact('user'));
     }
-    public function update(Request $request, User $user){
+    public function update(UserUpdateRequest $request, User $user){
 
 
-
-          $request->validate([
-           'username'=> 'required|string|max:255',
-           'email'   => 'required|string|max:255|unique:users,email,'.$user->id,
-     ]);
             $user->update([
                         'name' =>$request->username,
                         'email'=>$request->email,
