@@ -8,26 +8,27 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Action\User\UserList;
+use App\Action\User\UserCreate;
+use App\Action\User\UserUpdate;
+use App\Action\User\UserDelete;
 class UserController extends Controller
 {
-    public function index(){
+    public function index(UserList $userList){
 
-          $users=User::all();
-          return view('adminPanel.user.userList',compact('users'));
+
+          return view('adminPanel.user.userList')
+                 ->with('users',$userList->list());
 
     }
 
     public function create(){
         return view('adminPanel.user.addUser');
     }
-    public function store(UserStoreRequest $request){
+    public function store(UserStoreRequest $request, UserCreate $userCreate){
 
+            $userCreate->create($request);
 
-             User::insert([
-                 'name' =>$request->username,
-                 'email'=>$request->email,
-                 'password'=> Hash::make('pass1234') ,
-             ]);
       return redirect()
              ->route('user.list')
               ->with('success','User Recorded Added Successfully!');;
@@ -38,14 +39,10 @@ class UserController extends Controller
 
           return view('adminPanel.user.addUser',compact('user'));
     }
-    public function update(UserUpdateRequest $request, User $user){
+    public function update(UserUpdateRequest $request, User $user,UserUpdate $userUpdate){
 
+            $userUpdate->update($id);
 
-            $user->update([
-                        'name' =>$request->username,
-                        'email'=>$request->email,
-                        'password'=> Hash::make('pass1234') ,
-            ]);
 
             return redirect()
             ->route('user.list')
@@ -53,8 +50,9 @@ class UserController extends Controller
 
     }
 
-   public function destroy(User $user){
-        $user->delete();
+   public function destroy( $id, UserDelete $userDelete){
+            $userDelete->destroy($id);
+
         return redirect()
             ->route('user.list')
             ->with('success','User Recorded deleted Successfully!');

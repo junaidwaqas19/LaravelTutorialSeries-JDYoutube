@@ -32,7 +32,7 @@ Route::get('admin/user/add',[UserController::class,'create'])->name('user-add');
 Route::post('admin/user/store',[UserController::class,'store'])->name('user.store');
 Route::get('admin/user/edit/{user}',[UserController::class,'edit'])->name('user.edit');
 Route::Put('admin/user/update/{user}',[UserController::class,'update'])->name('user.update');
-Route::delete('admin/user/delete/{user}',[UserController::class,'destroy'])->name('user.delete');
+Route::delete('admin/user/delete/{id}',[UserController::class,'destroy'])->name('user.delete');
 
 
 
