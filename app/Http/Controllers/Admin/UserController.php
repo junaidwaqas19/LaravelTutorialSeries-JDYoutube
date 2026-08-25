@@ -41,7 +41,7 @@ class UserController extends Controller
     }
     public function update(UserUpdateRequest $request, User $user,UserUpdate $userUpdate){
 
-            $userUpdate->update($id);
+            $userUpdate->update($user,$request);
 
 
             return redirect()

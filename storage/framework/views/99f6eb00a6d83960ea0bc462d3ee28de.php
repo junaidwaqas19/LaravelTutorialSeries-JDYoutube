@@ -2,7 +2,7 @@
 <?php $__env->startSection('content'); ?>
 <div class="bg-white max-w-md rounded-lg shadow p-6">
     <h2 class="text-xl font-bold mb-6"><?php echo e(isset($user)?'Edit User':'Add User'); ?></h2>
-<form action="<?php echo e(isset($user)?route('user.update',$user->id):route('user.store')); ?>" method="POST">
+<form action="<?php echo e(isset($user)?route('user.update',$user->user_id):route('user.store')); ?>" method="POST">
     <?php echo csrf_field(); ?>
     <?php if(isset($user)): ?>
         <?php echo method_field('PUT'); ?>
@@ -10,7 +10,7 @@
         <div>
             <label for="username">Username</label><br>
             <input type="text" id="username" name="username" class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-              value=<?php echo e(isset($user)?$user->name:''); ?> >
+              value=<?php echo e(isset($user)?$user->user_name:''); ?> >
             <?php $__errorArgs = ['username'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -31,7 +31,7 @@ unset($__errorArgs, $__bag); ?>
         <div>
             <label for="email">Email</label><br>
             <input type="email" id="email" name="email" class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-              value=<?php echo e(isset($user)?$user->email:''); ?>>
+              value=<?php echo e(isset($user)?$user->user_email:''); ?>>
                  <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
