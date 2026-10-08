@@ -3,7 +3,7 @@
 @section('content')
 <div class="bg-white max-w-md rounded-lg shadow p-6">
     <h2 class="text-xl font-bold mb-6">{{isset($user)?'Edit User':'Add User'}}</h2>
-<form action="{{isset($user)?route('user.update',$user->id):route('user.store')}}" method="POST">
+<form action="{{isset($user)?route('user.update',$user->userId):route('user.store')}}" method="POST">
     @csrf
     @isset($user)
         @method('PUT')
@@ -11,7 +11,7 @@
         <div>
             <label for="username">Username</label><br>
             <input type="text" id="username" name="username" class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-              value={{isset($user)?$user->name:''}} >
+              value={{isset($user)?$user->userName:''}} >
             @error('username')
                 <span class="text-red-500 text-sm mt-1 block">
                     {{$message}}
@@ -24,7 +24,7 @@
         <div>
             <label for="email">Email</label><br>
             <input type="email" id="email" name="email" class="w-full border rounded px-3 py-2 focus:ring-2 focus:ring-blue-500"
-              value={{isset($user)?$user->email:''}}>
+              value={{isset($user)?$user->userEmail:''}}>
                  @error('email')
                     <span class="text-red-500 text-sm mt-1 block">
                         {{$message}}

@@ -12,6 +12,8 @@ use App\Action\User\UserList;
 use App\Action\User\UserCreate;
 use App\Action\User\UserUpdate;
 use App\Action\User\UserDelete;
+use App\DTO\UserDto;
+
 class UserController extends Controller
 {
     public function index(UserList $userList){
@@ -37,7 +39,10 @@ class UserController extends Controller
     public function edit(User $user){
 
 
-          return view('adminPanel.user.addUser',compact('user'));
+          return view('adminPanel.user.addUser')
+                  ->with('user',UserDto::fromUserModel($user));
+
+
     }
     public function update(UserUpdateRequest $request, User $user,UserUpdate $userUpdate){
 

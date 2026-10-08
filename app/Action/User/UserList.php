@@ -2,6 +2,7 @@
 
 namespace App\Action\User;
 use App\Models\User;
+use App\DTO\UserDto;
 class UserList
 {
     /**
@@ -9,6 +10,6 @@ class UserList
      */
     public function List(){
 
-        return User::all();
+        return User::all()->map(fn(User $user)=>UserDto::fromUserModel($user));
     }
 }

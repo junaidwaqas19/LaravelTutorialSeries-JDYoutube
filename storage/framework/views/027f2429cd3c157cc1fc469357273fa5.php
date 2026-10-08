@@ -28,13 +28,13 @@
         <tbody>
               <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <tr class="border-t">
-                        <td class="p-3"><?php echo e($u->id); ?></td>
-                        <td class="p-3"><?php echo e($u->name); ?></td>
-                        <td class="p-3"><?php echo e($u->email); ?></td>
+                        <td class="p-3"><?php echo e($u->userId); ?></td>
+                        <td class="p-3"><?php echo e($u->userName); ?></td>
+                        <td class="p-3"><?php echo e($u->userEmail); ?></td>
                         <td class="p-3 text-center flex justify-center gap-2 ">
-                            <a href="<?php echo e(route('user.edit',$u->id)); ?>" class="px-2 py-1 text-white bg-yellow-500 rounded">Edit</a>
+                            <a href="<?php echo e(route('user.edit',$u->userId)); ?>" class="px-2 py-1 text-white bg-yellow-500 rounded">Edit</a>
 
-                            <form action="<?php echo e(route('user.delete',$u->id)); ?>" method="POST">
+                            <form action="<?php echo e(route('user.delete',$u->userId)); ?>" method="POST">
                                     <?php echo csrf_field(); ?>
                                     <?php echo method_field('DELETE'); ?>
                                     <button type="submit" class="px-2 py-1 text-white bg-red-600 rounded cursor:mouse" >
