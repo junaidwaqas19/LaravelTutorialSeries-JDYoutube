@@ -28,7 +28,7 @@
         <tbody>
               @foreach ($users as $u )
                    <tr class="border-t">
-                        <td class="p-3">{{$u->userId}}</td>
+                        <td class="p-3">{{$loop->iteration}}</td>
                         <td class="p-3">{{$u->userName}}</td>
                         <td class="p-3">{{$u->userEmail}}</td>
                         <td class="p-3 text-center flex justify-center gap-2 ">
@@ -43,6 +43,7 @@
                             </form>
                         </td>
                     </tr>
+
               @endforeach
 
 

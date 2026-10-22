@@ -28,7 +28,7 @@
         <tbody>
               <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $u): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                    <tr class="border-t">
-                        <td class="p-3"><?php echo e($u->userId); ?></td>
+                        <td class="p-3"><?php echo e($loop->iteration); ?></td>
                         <td class="p-3"><?php echo e($u->userName); ?></td>
                         <td class="p-3"><?php echo e($u->userEmail); ?></td>
                         <td class="p-3 text-center flex justify-center gap-2 ">
@@ -43,6 +43,7 @@
                             </form>
                         </td>
                     </tr>
+
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
 

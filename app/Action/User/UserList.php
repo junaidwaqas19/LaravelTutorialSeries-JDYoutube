@@ -10,6 +10,7 @@ class UserList
      */
     public function List(){
 
-        return User::all()->map(fn(User $user)=>UserDto::fromUserModel($user));
+        return User::orderby('id','desc')->get()
+               ->map(fn(User $user)=>UserDto::fromUserModel($user));
     }
 }
