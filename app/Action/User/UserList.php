@@ -10,7 +10,7 @@ class UserList
      */
     public function List(){
 
-        return User::orderby('id','desc')->get()
-               ->map(fn(User $user)=>UserDto::fromUserModel($user));
+        return User::orderby('id','desc')->paginate(10)
+               ->through(fn(User $user)=>UserDto::fromUserModel($user));
     }
 }

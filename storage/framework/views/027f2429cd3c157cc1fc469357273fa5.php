@@ -50,8 +50,10 @@
 
         </tbody>
     </table>
+        <div class="m-4 p-4">
+            <?php echo e($users->links()); ?>
 
-
+        </div>
  </div>
 
 <?php $__env->stopSection(); ?>
