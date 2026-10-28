@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FrontEnd\WelcomeController;
-use App\Http\Controllers\FrontEnd\AboutUs;
-use App\Http\Controllers\FrontEnd\CategoryController;
-use App\Http\Controllers\FrontEnd\ContactUsController;
-use App\Http\Controllers\FrontEnd\PostController;
+use App\Http\Controllers\FrontEnd\{WelcomeController,AboutUs,CategoryController,ContactUsController,PostController};
 use App\Http\Controllers\Admin\UserController;
 
 

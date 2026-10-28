@@ -6,12 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\UserStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
-use App\Action\User\UserList;
-use App\Action\User\UserCreate;
-use App\Action\User\UserUpdate;
-use App\Action\User\UserDelete;
+use App\Http\Requests\{UserStoreRequest,UserUpdateRequest};
+use App\Action\User\{UserList,UserCreate,UserUpdate,UserDelete};
 use App\DTO\UserDto;
 
 class UserController extends Controller
